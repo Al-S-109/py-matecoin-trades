@@ -6,8 +6,8 @@ with open("trades.json", "r") as file:
     trades = json.load(file)
 
 
-earned_money = 0
-mate_account = 0
+earned_money = Decimal("0")
+mate_account = Decimal("0")
 for trade in trades:
     if trade["bought"] is not None:
         mate_account += Decimal(trade["bought"])
@@ -24,4 +24,4 @@ dict_of_trades = dict(
 )
 
 with open("profit.json", "w") as file:
-    json_trades = json.dump(dict_of_trades, file, indent=2)
+    json.dump(dict_of_trades, file, indent=2)
